@@ -1,7 +1,5 @@
-add_subdirectory(surakarta_agent)
-
 SET(GAME_SOURCES surakarta_reason.cpp surakarta_game.cpp surakarta_rule_manager.cpp)
-SET(AGENT_SOURCES surakarta_agent/surakarta_agent_random.cpp)
+SET(AGENT_SOURCES surakarta_agent/surakarta_agent_random.cpp surakarta_agent/surakarta_agent_mine.cpp)
 
 add_library(surakarta ${GAME_SOURCES} ${AGENT_SOURCES})
 

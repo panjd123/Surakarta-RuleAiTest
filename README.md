@@ -2,9 +2,26 @@
 
 ## 介绍
 
-你需要填空 `src/surakarta/surakarta_rule_manager.cpp` 中的函数以正确完成一系列和规则判断有关的函数。游戏的执行逻辑已经在 `src/surakarta/surakarta_game.cpp` 中实现，他们会调用你实现的函数，了解执行逻辑可能会有助于你完成 `surakarta_rule_manager.cpp` 中的函数。具体来说，请全局搜索 `TODO` 并阅读相关注释。
+第一阶段你有两项任务：
+
+- 完成游戏规则的实现
+- 完成一个简单的AI
+
+### 游戏规则
+
+你需要填空 `src/surakarta/surakarta_rule_manager.cpp` 中的函数以正确完成一系列和规则判断有关的函数。
+
+游戏的执行逻辑已经在 `src/surakarta/surakarta_game.cpp` 中实现，他们会调用你实现的函数，了解执行逻辑可能会有助于你完成 `surakarta_rule_manager.cpp` 中的函数。
+
+具体来说，请全局搜索 `TODO` 并阅读相关注释。
 
 因为用到了少量未来课程的知识，你还可以通过完成 `src/hello_cpp` 中的 TODO 来学习。
+
+### AI
+
+在 `src/surakarta/surakarta_agent` 下有两个具体的 AI 实现，其中 `surakarta_agnet_random` 是已经实现好的随机 AI，只要你把 `rule_manager` 的 `JudgeMove` 实现好，就可以正确运行。
+
+`surakarta_agnet_mine` 是你需要实现的 AI，你可以在其中实现你的 AI 算法。并最终在 `src/surakarta/main.cpp` 中调用你的 AI 和随机 AI 进行对战。
 
 ## 运行方法
 
@@ -28,6 +45,7 @@ cd build
 cmake ..
 make
 ./bin/main # 对应 src/surakarta/main.cpp，你可以用来调试 surakarta
+./bin/main_ta # 对应 src/surakarta_ta/main.cpp，相当于助教的实现，你们完成项目后应该达成的效果
 ./bin/hello_cpp_test # 验证 src/hello_cpp/hello_cpp.h 的正确性
 ./bin/surakarta_rule_manager_test # 验证 src/surakarta/surakarta_rule_manager.h 的正确性
 ```
@@ -136,7 +154,7 @@ int main() {
 
 这个阶段必须用这个框架，之后你可以自己写一个框架，但是要求能通过这个测试，即你把你的框架内的规则相关的类取出来，然后在 `JudgeMove` 和 `JudgeEat` 中调用你的函数，你可能需要做一个转化，比如你是用二维int数组表示棋盘的，你就在函数里预处理一下啥的。
 
-这个实验的目的是强制面向对象，或者说展示面向对象的优势：方便扩展。
+设计这个测试的一大目的是强制面向对象，或者说展示面向对象的优势：方便扩展。
 
 ## 开发手册
 

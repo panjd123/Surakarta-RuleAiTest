@@ -1,6 +1,7 @@
 #include <chrono>
 #include <iostream>
 #include <thread>
+#include "surakarta/surakarta_agent/surakarta_agent_mine.h"
 #include "surakarta/surakarta_agent/surakarta_agent_random.h"
 #include "surakarta/surakarta_common.h"
 #include "surakarta/surakarta_game.h"
