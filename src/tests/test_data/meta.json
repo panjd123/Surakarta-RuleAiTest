@@ -1,0 +1,53 @@
+[
+    {
+        "filename": "game1.txt",
+        "moves": [
+            {
+                "move": "2 2 2 0 B",
+                "reason": "LegalCaptureMove"
+            },
+            {
+                "move": "2 2 2 1 B",
+                "reason": "IllegalNonCaptureMove"
+            },
+            {
+                "move": "2 2 2 3 B",
+                "reason": "LegalNonCaptureMove"
+            },
+            {
+                "move": "4 4 5 1 B",
+                "reason": "LegalCaptureMove"
+            },
+            {
+                "move": "4 5 5 1 B",
+                "reason": "IllegalCaptureMove"
+            },
+            {
+                "move": "4 5 4 6 B",
+                "reason": "OUT_OF_BOARD"
+            }
+        ]
+    },
+    {
+        "filename": "game2.txt",
+        "moves": [
+            {
+                "move": "4 4 3 4 W",
+                "reason": "LegalCaptureMove"
+            },
+            {
+                "move": "3 5 5 3 W",
+                "reason": "LegalCaptureMove"
+            }
+        ]
+    },
+    {
+        "filename": "game6.txt",
+        "moves": [
+            {
+                "move": "5 1 1 1 B",
+                "reason": "LegalCaptureMove"
+            }
+        ]
+    }
+]
