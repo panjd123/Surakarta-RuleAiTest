@@ -3,13 +3,14 @@
 #include <iostream>
 
 // TODO: Read the following comments carefully.
+// Don't implement anything with 'unused' comments.
 
 enum class SurakartaIllegalMoveReason {
     LEGAL,                     // unused
     LEGAL_CAPTURE_MOVE,        // capture a opponent's piece, and the move consists at least one corner loop
     LEGAL_NON_CAPTURE_MOVE,    // just as the name
     ILLIGAL,                   // unused
-    NOT_PLAYER_TURN,           // unused, move when it's not the player's turn, this will never happen before we add the Network module
+    NOT_PLAYER_TURN,           // unused, move when it's not the player's turn.
     OUT_OF_BOARD,              // from or to position is out of board
     NOT_PIECE,                 // move a position that is not a piece
     NOT_PLAYER_PIECE,          // move a piece that is not the player's
@@ -21,8 +22,10 @@ enum class SurakartaIllegalMoveReason {
 
 enum class SurakartaEndReason {
     NONE,          // not end
-    STALEMATE,     // players can't make more legal move
-    CHECKMATE,     // one player's last piece is captured
+    STALEMATE,     // both players can't make more move
+    CHECKMATE,     // one player's all pieces are captured
+    TRAPPED,       // unused, one player's pieces are all trapped, no legal move can be made.
+    RESIGN,        // unused, one player resigns.
     ILLIGAL_MOVE,  // one player makes an illegal move
 };
 

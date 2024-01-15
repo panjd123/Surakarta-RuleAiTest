@@ -5,8 +5,8 @@ W . . . . .
 . . . W . . 
 . . . . . . 
 current_player: W
-num_round: 100
+num_round: 50
 last_captured_round: 0
 end_reason: NONE
 winner: .
-max_no_capture_round: 100
+max_no_capture_round: 50

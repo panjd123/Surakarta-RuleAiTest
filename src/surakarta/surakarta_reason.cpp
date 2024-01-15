@@ -110,6 +110,9 @@ std::ostream& operator<<(std::ostream& os, const SurakartaEndReason& reason) {
         case SurakartaEndReason::CHECKMATE:
             os << "CHECKMATE";
             break;
+        case SurakartaEndReason::TRAPPED:
+            os << "TRAPPED";
+            break;
         case SurakartaEndReason::ILLIGAL_MOVE:
             os << "ILLIGAL_MOVE";
             break;
@@ -129,6 +132,8 @@ std::istream& operator>>(std::istream& is, SurakartaEndReason& reason) {
         reason = SurakartaEndReason::STALEMATE;
     } else if (str == "CHECKMATE") {
         reason = SurakartaEndReason::CHECKMATE;
+    } else if (str == "TRAPPED") {
+        reason = SurakartaEndReason::TRAPPED;
     } else if (str == "ILLIGAL_MOVE") {
         reason = SurakartaEndReason::ILLIGAL_MOVE;
     } else {

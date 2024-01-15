@@ -46,22 +46,23 @@ void SurakartaGame::UpdateGameInfo(SurakartaIllegalMoveReason move_reason, Surak
 }
 
 SurakartaMoveResponse SurakartaGame::Move(const SurakartaMove& move) {
-    SurakartaIllegalMoveReason reason = rule_manager_->JudgeMove(move);
-    auto [end_reason, winner] = rule_manager_->JudgeEnd(reason);
+    SurakartaIllegalMoveReason move_reason = rule_manager_->JudgeMove(move);
+    auto [end_reason, winner] = rule_manager_->JudgeEnd(move_reason);
 
-    UpdateGameInfo(reason, end_reason, winner);
-    if (reason == SurakartaIllegalMoveReason::LEGAL_NON_CAPTURE_MOVE) {
+    UpdateGameInfo(move_reason, end_reason, winner);
+
+    if (move_reason == SurakartaIllegalMoveReason::LEGAL_NON_CAPTURE_MOVE) {
         std::swap((*board_)[move.to.x][move.to.y], (*board_)[move.from.x][move.from.y]);
         (*board_)[move.to.x][move.to.y]->SetPosition(move.to);
         (*board_)[move.from.x][move.from.y]->SetPosition(move.from);
         rule_manager_->OnUpdateBoard();
-    } else if (reason == SurakartaIllegalMoveReason::LEGAL_CAPTURE_MOVE) {
+    } else if (move_reason == SurakartaIllegalMoveReason::LEGAL_CAPTURE_MOVE) {
         (*board_)[move.to.x][move.to.y] = (*board_)[move.from.x][move.from.y];
         (*board_)[move.to.x][move.to.y]->SetPosition(move.to);
         (*board_)[move.from.x][move.from.y] = std::make_shared<SurakartaPiece>(move.from.x, move.from.y, PieceColor::NONE);
         rule_manager_->OnUpdateBoard();
     }
 
-    SurakartaMoveResponse response(reason, end_reason, winner);
+    SurakartaMoveResponse response(move_reason, end_reason, winner);
     return response;
 }

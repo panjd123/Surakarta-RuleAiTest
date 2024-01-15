@@ -10,19 +10,19 @@
 #define ANSI_MOVE_TO_START "\033[H"
 
 int main() {
-    SurakartaGame game(6, 100);  // Default is 6, 40. But random agent may too slow to eat a piece.
-    game.GetRuleManager()->HelloWorld();
+    SurakartaGame game;
     game.StartGame();
     std::shared_ptr<SurakartaRuleManagerImp> rule_manager = std::make_shared<SurakartaRuleManagerImp>(game.GetBoard(), game.GetGameInfo());
     std::shared_ptr<SurakartaAgentRandom> agent = std::make_shared<SurakartaAgentRandom>(game.GetBoard(), game.GetGameInfo(), rule_manager);
     game.SetRuleManager(rule_manager);
-    game.SetAgent(agent);
+    std::cout << ANSI_CLEAR_SCREEN << ANSI_MOVE_TO_START;
     while (!game.IsEnd()) {
-        auto move = game.GetAgent()->CalculateMove();
+        auto move = agent->CalculateMove();
         game.Move(move);
         std::cout << *game.GetBoard();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        std::this_thread::sleep_for(std::chrono::milliseconds(300));
         std::cout << ANSI_CLEAR_SCREEN << ANSI_MOVE_TO_START;
     }
+    std::cout << *game.GetBoard();
     std::cout << game.GetGameInfo()->end_reason_ << std::endl;
 }

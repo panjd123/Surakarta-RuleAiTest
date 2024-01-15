@@ -20,6 +20,7 @@ TEST(SurakartaRuleManagerTest, EndReasonTest) {
     tb.emplace_back("game3.txt", SurakartaIllegalMoveReason::LEGAL_NON_CAPTURE_MOVE);
     tb.emplace_back("game4.txt", SurakartaIllegalMoveReason::LEGAL_NON_CAPTURE_MOVE);
     tb.emplace_back("game5.txt", SurakartaIllegalMoveReason::LEGAL_NON_CAPTURE_MOVE);
+    tb.emplace_back("game7.txt", SurakartaIllegalMoveReason::LEGAL_NON_CAPTURE_MOVE);
     for (auto [file_name, reason] : tb) {
         game1.StartGame(TEST_DATA_DIR + file_name);
         game2.StartGame(TEST_DATA_DIR + file_name);
@@ -55,6 +56,9 @@ TEST(SurakartaRuleManagerTest, MoveReasonTest) {
     tb.push_back(std::make_pair("game2.txt", std::vector<SurakartaMove>{
                                                  {4, 4, 3, 4, SurakartaPlayer::WHITE},
                                                  {3, 5, 5, 3, SurakartaPlayer::WHITE}}));
+    tb.push_back(std::make_pair("game8.txt", std::vector<SurakartaMove>{
+                                                 {1, 3, 1, 2, SurakartaPlayer::WHITE},
+                                                 {1, 2, 1, 3, SurakartaPlayer::WHITE}}));
     for (auto [file_name, moves] : tb) {
         game1.StartGame(TEST_DATA_DIR + file_name);
         game2.StartGame(TEST_DATA_DIR + file_name);
@@ -97,10 +101,8 @@ TEST(SurakartaRuleManagerTest, RandomTest) {
             }
             auto move_reason_ta = rule_manager_ta->JudgeMove(move);
             auto [end_reason_ta, winner_ta] = rule_manager_ta->JudgeEnd(move_reason_ta);
-
             auto move_reason_stu = rule_manager_stu->JudgeMove(move);
             auto [end_reason_stu, winner_stu] = rule_manager_stu->JudgeEnd(move_reason_stu);
-
             ASSERT_EQ(move_reason_ta, move_reason_stu) << "Board:" << std::endl
                                                        << *game2.GetBoard() << "GameInfo:" << std::endl
                                                        << *game2.GetGameInfo() << "Move: " << move << std::endl;

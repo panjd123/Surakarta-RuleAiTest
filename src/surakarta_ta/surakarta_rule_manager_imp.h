@@ -25,7 +25,7 @@ class SurakartaRuleManagerImp : public SurakartaRuleManager {
     SurakartaMove GenerateMove(double p_random, double p_legal);
 
    private:
-    std::vector<SurakartaMove> LegalCaptureMoves;
+    std::vector<SurakartaMove> legal_capture_moves_;
 
     // For testing
     std::vector<std::shared_ptr<SurakartaPiece>> white_pieces_;

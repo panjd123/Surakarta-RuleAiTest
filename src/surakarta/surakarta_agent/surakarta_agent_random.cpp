@@ -20,13 +20,17 @@ SurakartaMove SurakartaAgentRandom::CalculateMove() {
     }
     std::shuffle(from.begin(), from.end(), std::default_random_engine(std::random_device()()));
     std::shuffle(to.begin(), to.end(), std::default_random_engine(std::random_device()()));
+    SurakartaMove rd_move({0, 0}, {0, 0}, game_info_->current_player_);
     for (auto& p1 : from) {
         for (auto& p2 : to) {
             SurakartaMove move = {p1, p2, game_info_->current_player_};
-            if (IsLegalMoveReason(rule_manager_->JudgeMove(move))) {
+            SurakartaIllegalMoveReason reason = rule_manager_->JudgeMove(move);
+            if (reason == SurakartaIllegalMoveReason::LEGAL_CAPTURE_MOVE) {
                 return move;
+            } else if (reason == SurakartaIllegalMoveReason::LEGAL_NON_CAPTURE_MOVE) {
+                rd_move = move;
             }
         }
     }
-    return SurakartaMove({0, 0}, {0, 0}, game_info_->current_player_);
+    return rd_move;
 }
