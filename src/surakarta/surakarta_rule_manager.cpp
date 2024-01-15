@@ -1,6 +1,13 @@
 #include "surakarta_rule_manager.h"
 #include <iostream>
 
+void SurakartaRuleManager::OnUpdateBoard() {
+    // TODO:
+    // Every time the board is updated, this function will be called.
+    // You don't need to implement this function if you don't need it.
+    // A more delicate way is to use Qt's signal and slot mechanism, but that's the advanced part.
+}
+
 SurakartaIllegalMoveReason SurakartaRuleManager::JudgeMove(const SurakartaMove& move) {
     // TODO: Implement this function.
 

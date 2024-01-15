@@ -19,12 +19,7 @@ class SurakartaRuleManager {
         return board_size_;
     }
 
-    virtual void OnUpdateBoard() {
-        // TODO: Read the following comments carefully.
-        // Every time the board is updated, this function will be called.
-        // You don't need to implement this function if you don't need it.
-        // A more delicate way is to use Qt's signal and slot mechanism, but here we use a simple way.
-    }
+    virtual void OnUpdateBoard();
 
     /**
      * @brief Judge whether a move is legal.
