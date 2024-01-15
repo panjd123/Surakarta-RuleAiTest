@@ -26,6 +26,7 @@ enum class SurakartaEndReason {
     CHECKMATE,     // one player's all pieces are captured
     TRAPPED,       // unused, one player's pieces are all trapped, no legal move can be made.
     RESIGN,        // unused, one player resigns.
+    TIMEOUT,       // unused, one player's time is out.
     ILLIGAL_MOVE,  // one player makes an illegal move
 };
 
