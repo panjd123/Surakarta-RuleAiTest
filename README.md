@@ -1,5 +1,7 @@
 # Surakarta 第一阶段测试
 
+> 如果你正在寻找主仓库，请访问 [Surakarta](https://github.com/panjd123/Surakarta)
+
 ## 介绍
 
 第一阶段你有两项任务：
