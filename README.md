@@ -29,7 +29,11 @@
 
 ## 怎么 clone 这个仓库
 
-> 参考 https://github.com/cmu-db/bustub
+一种粗暴的方式是 clone 完代码后，删掉 .git 文件夹，重新初始化成你的仓库。
+
+但是我**强烈**建议，甚至应该说要求用以下这种方式 clone，以保证你可以借助 git 工具来将这个仓库的更新 pull 到你的仓库里。
+
+> 参考自 https://github.com/cmu-db/bustub
 
 The following instructions are adapted from the Github documentation on [duplicating a repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/duplicating-a-repository). The procedure below walks you through creating a private Surakarta-RuleAiTest repository that you can use for development.
 
