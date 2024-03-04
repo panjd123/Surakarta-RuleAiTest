@@ -27,6 +27,26 @@
 
 实现好后，你可以运行 `build/bin/main` 来观察，这一部分没有 google test。
 
+## 开发环境
+
+- 该项目要求在 x86 架构的 Linux 下开发，其他系统和架构都不能运行。
+- 该项目推荐使用的 IDE 配置：VSCode，插件： C/C++, CMake, CMake Tools。
+
+为了 `IntelliSense` 能正常工作，我推荐你在本 Workspace 下这样设置 `settings.json`：
+
+```json
+{
+    // "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.default.configurationProvider": "ms-vscode.cpp-tools",
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/src"
+    ],
+}
+```
+
+`"C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"` 会有点问题
+
+
 ## 怎么 clone 这个仓库（或者说怎么从这个共有仓库里 fork 出你的私有仓库）
 
 一种粗暴的方式是 clone 完代码后，删掉 .git 文件夹，重新初始化成你的仓库。
@@ -124,24 +144,6 @@ make
 ./bin/hello_cpp_test # 验证 src/hello_cpp/hello_cpp.h 的正确性
 ./bin/surakarta_rule_manager_test # 验证 src/surakarta/surakarta_rule_manager.cpp 的正确性
 ```
-
-## 开发环境
-
-该项目推荐使用 VSCode + 插件 C/C++, CMake, CMake Tools 在 Linux 下开发。
-
-为了 `IntelliSense` 能正常工作，我推荐你在本 Workspace 下这样设置 `settings.json`：
-
-```json
-{
-    // "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
-    "C_Cpp.default.configurationProvider": "ms-vscode.cpp-tools",
-    "C_Cpp.default.includePath": [
-        "${workspaceFolder}/src"
-    ],
-}
-```
-
-`"C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"` 会有点问题
 
 ## 算法实现
 
