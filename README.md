@@ -102,6 +102,10 @@ We suggest working on your projects in separate branches. If you do not understa
 
 ### 安装 Google Test
 
+> 这是和本项目分离的一个库，请随便找个地方安装，不要 clone 到本项目里最后被 git 追踪。
+>
+> 如果你觉得 clone 太慢，你可以 git clone git@github.com:google/googletest.git --depth 1
+
 ```bash
 git clone git@github.com:google/googletest.git
 cd googletest

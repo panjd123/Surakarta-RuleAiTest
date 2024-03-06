@@ -1,8 +1,21 @@
 #pragma once
 
 #include <memory>
+#include <stdexcept>
 #include <vector>
 #include "surakarta/surakarta_rule_manager.h"
+
+class NoLegalMove : public std::exception {
+    const char* message;
+
+   public:
+    NoLegalMove(const char* p_messgae = "No legal move")
+        : message(p_messgae) {}
+
+    const char* what() const noexcept override {
+        return message;
+    }
+};
 
 class SurakartaRuleManagerImp : public SurakartaRuleManager {
     using SurakartaRuleManager::board_;
