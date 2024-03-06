@@ -5,18 +5,6 @@
 #include <vector>
 #include "surakarta/surakarta_rule_manager.h"
 
-class NoLegalMove : public std::exception {
-    const char* message;
-
-   public:
-    NoLegalMove(const char* p_messgae = "No legal move")
-        : message(p_messgae) {}
-
-    const char* what() const noexcept override {
-        return message;
-    }
-};
-
 class SurakartaRuleManagerImp : public SurakartaRuleManager {
     using SurakartaRuleManager::board_;
     using SurakartaRuleManager::board_size_;
@@ -34,7 +22,7 @@ class SurakartaRuleManagerImp : public SurakartaRuleManager {
     std::pair<SurakartaEndReason, SurakartaPlayer> JudgeEnd(const SurakartaIllegalMoveReason reason) override;
     std::unique_ptr<std::vector<SurakartaPosition>> GetAllLegalTarget(const SurakartaPosition postion) override;
 
-    // For testing
+    // For testing, if no valid moves are available, it will still output randomly
     SurakartaMove GenerateMove(double p_random, double p_legal);
 
    private:

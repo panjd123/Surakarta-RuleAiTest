@@ -95,11 +95,7 @@ TEST(SurakartaRuleManagerTest, RandomTest) {
         SurakartaMove move;
         for (int i = 0; i < offline_test_round + 1; i++) {
             if (i == offline_test_round) {
-                try {
-                    move = rule_manager_ta->GenerateMove(0, 1);
-                } catch (const NoLegalMove& e) {
-                    move = rule_manager_ta->GenerateMove(1, 0);
-                }
+                move = rule_manager_ta->GenerateMove(0, 1);
             } else {
                 move = rule_manager_ta->GenerateMove(0.5, 0.5);
             }
