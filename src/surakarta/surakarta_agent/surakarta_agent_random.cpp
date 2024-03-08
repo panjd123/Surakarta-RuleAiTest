@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <random>
 #include <vector>
+#include "surakarta/global_random_generator.h"
 #include "surakarta/surakarta_common.h"
 
 SurakartaMove SurakartaAgentRandom::CalculateMove() {
@@ -18,8 +19,8 @@ SurakartaMove SurakartaAgentRandom::CalculateMove() {
             }
         }
     }
-    std::shuffle(from.begin(), from.end(), std::default_random_engine(std::random_device()()));
-    std::shuffle(to.begin(), to.end(), std::default_random_engine(std::random_device()()));
+    std::shuffle(from.begin(), from.end(), GlobalRandomGenerator::getInstance());
+    std::shuffle(to.begin(), to.end(), GlobalRandomGenerator::getInstance());
     SurakartaMove rd_move({0, 0}, {0, 0}, game_info_->current_player_);
     for (auto& p1 : from) {
         for (auto& p2 : to) {

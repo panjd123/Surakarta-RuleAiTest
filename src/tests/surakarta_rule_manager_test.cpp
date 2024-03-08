@@ -7,9 +7,13 @@
 
 #ifndef TEST_DATA_DIR
 #define TEST_DATA_DIR "/home/panjd123/code/TuringSurakarta/src/tests/test_data/"
+#warning TEST_DATA_DIR is not defined, please make sure you are in debug mode
 #endif
 
 TEST(SurakartaRuleManagerTest, EndReasonTest) {
+    if (BOARD_SIZE != 6) {
+        GTEST_SKIP() << "Skip test for BOARD_SIZE!=6";
+    }
     SurakartaGame game1;
     SurakartaGame game2;
     std::shared_ptr<SurakartaRuleManagerImp> rule_manager_ta = std::make_shared<SurakartaRuleManagerImp>(game2.GetBoard(), game2.GetGameInfo());
@@ -38,6 +42,9 @@ TEST(SurakartaRuleManagerTest, EndReasonTest) {
 }
 
 TEST(SurakartaRuleManagerTest, MoveReasonTest) {
+    if (BOARD_SIZE != 6) {
+        GTEST_SKIP() << "Skip test for BOARD_SIZE!=6";
+    }
     SurakartaGame game1;
     SurakartaGame game2;
     std::shared_ptr<SurakartaRuleManagerImp> rule_manager_ta = std::make_shared<SurakartaRuleManagerImp>(game2.GetBoard(), game2.GetGameInfo());
@@ -73,7 +80,6 @@ TEST(SurakartaRuleManagerTest, MoveReasonTest) {
 }
 
 TEST(SurakartaRuleManagerTest, RandomTest) {
-    srand(time(NULL));
     int offline_test_round;
     int num_game;
 

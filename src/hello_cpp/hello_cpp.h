@@ -44,7 +44,7 @@ class SmartPointerContainer : public Base {  // don't mind the "public Base" for
 };
 
 int* DoSomething1(int* ptr) {
-    if (rand() % 2 == 0) {
+    if (rand() % 2 == 0) {  // We still use rand here but it's not recommended from C++11.
         *ptr = *ptr + 1;
     } else {
         *ptr = *ptr - 1;
@@ -53,7 +53,7 @@ int* DoSomething1(int* ptr) {
 }
 
 std::unique_ptr<int> DoSomething2(std::unique_ptr<int> ptr) {
-    if (rand() % 2 == 0) {
+    if (rand() % 2 == 0) {  // We still use rand here but it's not recommended from C++11.
         *ptr = *ptr + 1;
     } else {
         *ptr = *ptr - 1;
