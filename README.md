@@ -122,17 +122,14 @@ We suggest working on your projects in separate branches. If you do not understa
 
 ### 安装 Google Test
 
-> 这是和本项目分离的一个库，请随便找个地方安装，不要 clone 到本项目里最后被 git 追踪。
->
-> 如果你觉得 clone 太慢，你可以 git clone git@github.com:google/googletest.git --depth 1
-
 ```bash
-git clone git@github.com:google/googletest.git
-cd googletest
-mkdir build
+git submodule update --init --recursive
+# to clone faster, you can use the following command
+# git submodule update --init --recursive --depth 1
+cd third-party/googletest
+cmake -B build .
 cd build
-cmake ..
-make
+make -j
 sudo make install
 ```
 
@@ -142,7 +139,7 @@ sudo make install
 mkdir build
 cd build
 cmake ..
-make
+make -j
 ./bin/main # 对应 src/surakarta/main.cpp，你可以用来调试 surakarta
 ./bin/main_ta # 对应 src/surakarta_ta/main.cpp，相当于助教的实现，你们完成项目后应该达成的效果
 ./bin/hello_cpp_test # 验证 src/hello_cpp/hello_cpp.h 的正确性
@@ -161,7 +158,7 @@ make
 
 我们会测试棋盘不变的情况下，多次（100次）查询不同的 `JudgeMove` 和 `JudgeEnd`，而不总是棋盘每次改变只查询一次，你可以针对性地优化性能。
 
-## Test
+## 测试的进阶用法
 
 我们给 `JudgeEnd` 和 `JudgeMove` 单独写了测试，你不必一上来就跑最后的那个随机测试。
 
@@ -170,6 +167,13 @@ make
 ```
 export NUM_GAME=100000
 export OFFLINE_TEST_ROUND=100
+./bin/surakarta_rule_manager_test
+```
+
+我们现在还支持手动指定随机数种子，这可能方便你复现某个测试。
+
+```
+export CUSTOM_SEED=123
 ./bin/surakarta_rule_manager_test
 ```
 
