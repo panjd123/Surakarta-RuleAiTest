@@ -1,0 +1,51 @@
+name: Correctness Check
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Clone Repository
+      run: |
+        git clone https://github.com/panjd123/Surakarta-RuleAiTest.git .ta/Surakarta-RuleAiTest
+    
+    - name: Copy test files
+      run: |
+        cp -ru .ta/Surakarta-RuleAiTest/src/tests/* src/tests/
+
+    - name: Setup CMake
+      uses: jwlawson/actions-setup-cmake@v2.0.1
+
+    - name: Setup GoogleTest
+      uses: Bacondish2023/setup-googletest@v1.0.1
+
+    - name: Configure and Build
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        make -j
+
+    - name: Run Tests
+      run: |
+        export LOG_LEVEL=1
+        ./build/bin/surakarta_rule_manager_test
+        exit_code=$?
+        if [ "${{ github.repository }}" == "panjd123/Surakarta-RuleAiTest" ]; then
+          echo "Tests skipped for TA's repository"
+        else
+          if [ $exit_code -eq 0 ]; then
+            echo "Tests passed successfully."
+          else
+            echo "Tests failed."
+            exit 1
+          fi
+        fi
