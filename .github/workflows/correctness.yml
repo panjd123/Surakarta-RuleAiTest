@@ -37,15 +37,8 @@ jobs:
     - name: Run Tests
       run: |
         export LOG_LEVEL=1
-        ./build/bin/surakarta_rule_manager_test
-        exit_code=$?
         if [ "${{ github.repository }}" == "panjd123/Surakarta-RuleAiTest" ]; then
           echo "Tests skipped for TA's repository"
         else
-          if [ $exit_code -eq 0 ]; then
-            echo "Tests passed successfully."
-          else
-            echo "Tests failed."
-            exit 1
-          fi
+          ./build/bin/surakarta_rule_manager_test
         fi
