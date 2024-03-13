@@ -66,6 +66,9 @@ TEST(SurakartaRuleManagerTest, MoveReasonTest) {
     tb.push_back(std::make_pair("game8.txt", std::vector<SurakartaMove>{
                                                  {1, 3, 1, 2, SurakartaPlayer::WHITE},
                                                  {1, 2, 1, 3, SurakartaPlayer::WHITE}}));
+    tb.push_back(std::make_pair("game9.txt", std::vector<SurakartaMove>{
+                                                 {3, 3, 2, 3, SurakartaPlayer::BLACK},
+                                                 {3, 3, 3, 1, SurakartaPlayer::BLACK}}));
     for (auto [file_name, moves] : tb) {
         game1.StartGame(TEST_DATA_DIR + file_name);
         game2.StartGame(TEST_DATA_DIR + file_name);
