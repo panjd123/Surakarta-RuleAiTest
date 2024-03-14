@@ -158,6 +158,11 @@ make -j
 
 这是一个粗糙的思路，还有细节的问题请自行思考。
 
+-----------
+
+在本作业中旬，我们上传了一份更详细的思路介绍，见 [主仓库 guidance/lectures](https://github.com/panjd123/Surakarta/blob/main/guidance/lectures/stage1.md)。
+
+
 ### 测试
 
 `./bin/surakarta_rule_manager_test` 中有 3 个测试单元：
