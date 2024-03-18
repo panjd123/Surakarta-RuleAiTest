@@ -20,6 +20,7 @@ jobs:
     - name: Copy test files
       run: |
         cp -ru .ta/Surakarta-RuleAiTest/src/tests/* src/tests/
+        cp -ru .ta/Surakarta-RuleAiTest/surakarta_ta/lib/* surakarta_ta/lib/
 
     - name: Setup CMake
       uses: jwlawson/actions-setup-cmake@v2.0.1
