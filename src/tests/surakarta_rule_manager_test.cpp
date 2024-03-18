@@ -139,7 +139,7 @@ TEST(SurakartaRuleManagerTest, RandomTest) {
         game1.Move(move);
         game2.Move(move);
         if (game2.IsEnd()) {
-            if (log_level >= 2) {
+            if (log_level >= 2 && game_cnt % 100 == 99) {
                 std::cout << "Game " << game_cnt << " (" << game2.GetGameInfo()->num_round_ << " round)"
                           << " (" << game2.GetGameInfo()->end_reason_ << ") "
                           << " passed." << std::endl;
