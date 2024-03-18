@@ -10,6 +10,11 @@
 #warning TEST_DATA_DIR is not defined, please make sure you are in debug mode
 #endif
 
+TEST(SurakartaRuleManagerTest, VERSION) {
+    std::cout << "BOARD_SIZE = " << BOARD_SIZE << std::endl
+              << "VERSION = 1.0.0" << std::endl;
+}
+
 TEST(SurakartaRuleManagerTest, EndReasonTest) {
     if (BOARD_SIZE != 6) {
         GTEST_SKIP() << "Skip test for BOARD_SIZE!=6";
@@ -59,7 +64,8 @@ TEST(SurakartaRuleManagerTest, MoveReasonTest) {
                                                  {4, 5, 5, 1, SurakartaPlayer::BLACK},
                                                  {4, 5, 4, 6, SurakartaPlayer::BLACK},
                                                  {0, 0, 0, 1, SurakartaPlayer::BLACK},
-                                                 {2, 0, 1, 0, SurakartaPlayer::BLACK}}));
+                                                 {2, 0, 1, 0, SurakartaPlayer::BLACK},
+                                                 {2, 0, 1, 0, SurakartaPlayer::WHITE}}));
     tb.push_back(std::make_pair("game2.txt", std::vector<SurakartaMove>{
                                                  {4, 4, 3, 4, SurakartaPlayer::WHITE},
                                                  {3, 5, 5, 3, SurakartaPlayer::WHITE}}));
