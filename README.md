@@ -271,3 +271,23 @@ cmake .. -DENV=DEV # 开发环境
 开发环境下 `make install` 会生成助教实现的 `src/surakarta_ta/surakarta_rule_manager_imp.cpp` 的动态链接库到 `surakarta_ta`
 
 测试环境下会到 `surakarta_ta` 下寻找动态链接库用于测试。
+
+## 作业列表
+
+1. https://github.com/CH3COOH-JYR/surakarta_stage1
+2. https://github.com/brighterr/SRAI
+3. https://github.com/surakarta-game/surakarta-rule-ai
+4. https://github.com/programming-team-X-C-X/Surakarta-RuleAiTest-private
+5. https://github.com/stephanieee528/Surakarta-RuleAiTest-private
+6. http://github.com/lomiland/Surakarta-RuleAiTest-private
+7. https://github.com/Wianger/Surakarta-RuleAiTest-private
+8. https://github.com/yermog/Surakarta-RuleAiTest-private
+9. https://github.com/whisperLyx/Surakarta-RuleAiTest-team09
+10. https://github.com/CoderBak/Surakarta-RuleAiTest-private
+11. https://github.com/nicknamepotato/winwin_stage_1.git
+12. https://github.com/csdogww/aqing
+13. https://github.com/wsh231908/Surakarta-RuleAiTest-private
+14. https://github.com/zxop123/Surakarta-RuleAiTest-private
+15. https://github.com/wangcanran/Surakarta-RuleAiTest-private
+16. https://github.com/huoguocat/HUOGUO_CATCAT_Surakarta
+17. https://github.com/ElysiaGoGoGo/GreatSchoolwork
